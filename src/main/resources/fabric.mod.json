@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "cloth-addons",
+  "version": "${version}",
+  "name": "Luna's Cloth Addons",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/cloth-addons/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.lunaluna.clothaddons.client.ClothAddonsClient"
+    ]
+  },
+  "mixins": [
+    "cloth-addons.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.8",
+    "fabric": "*",
+    "minecraft": "1.19"
+  }
+}
