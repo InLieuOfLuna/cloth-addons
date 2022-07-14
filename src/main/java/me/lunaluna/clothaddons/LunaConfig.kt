@@ -8,7 +8,7 @@ import java.nio.file.Path
 
 abstract class LunaConfig(protected val name: String, path: Path = Path.of("config", "$name.json"), val prefix: String = "text.config.$name", val title: Text = Text.translatable("$prefix.title")) {
 
-    protected val entryViews = mutableListOf<EntryView>()
+    val entryViews = mutableListOf<EntryView>()
 
     val screenFactory get() = ConfigScreenFactory {
         ConfigBuilder.create().apply {
