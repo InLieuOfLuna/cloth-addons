@@ -12,11 +12,11 @@
   "entrypoints": {
     "client": [
       "me.lunaluna.clothaddons.client.ClothAddonsClient"
+    ],
+    "modmenu": [
+      "test.appcompat.modmenu.ModMenuPlugin"
     ]
   },
-  "mixins": [
-    "cloth-addons.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=0.14.8",
     "fabric": "*",
