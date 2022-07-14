@@ -9,17 +9,18 @@ import me.lunaluna.clothaddons.views.toggle.booleanToggle
 
 object TestConfig : LunaConfig(name = "test-config") {
 
-    var alphaColor by alphaColorField("alpha-color-field")
-    var int by intField("int")
-    var keyCode by keyCodeField("key-code")
-    var long by longField("long")
-    var string by stringField("string")
+    var alphaColor by colorField(hasAlpha = true)
+    var color by colorField()
+    var int by intField(default = 5)
+    var keyCode by keyCodeField()
+    var long by longField()
+    var string by stringField()
 
-    var strings by stringList("str-list")
+    var strings by stringList()
 
-    var intSlider by intSlider("int-slider", range = 0..3)
-    var longSlider by longSlider("long-slider", range = 0L..3L)
+    var intSlider by intSlider(0..3)
+    var longSlider by longSlider(0L..3L)
 
-    var boolean by booleanToggle("boolean")
+    var boolean by booleanToggle()
 
 }

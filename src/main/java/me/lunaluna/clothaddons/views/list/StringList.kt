@@ -1,15 +1,16 @@
 package me.lunaluna.clothaddons.views.list
 
 import me.lunaluna.clothaddons.LunaConfig
-import me.lunaluna.clothaddons.views.BasicField
-import kotlin.reflect.KClass
+import me.lunaluna.clothaddons.views.provider
 
-fun LunaConfig.stringList(key: String, default: List<String> = emptyList(), hasTooltip: Boolean = false) = BasicField(
-    emptyList<String>()::class as KClass<List<String>>, prefix, default, key,
-) { entryBuilder, value ->
+fun LunaConfig.stringList(
+    default: List<String> = emptyList(),
+    key: String? = null,
+    hasTooltip: Boolean = false
+) = provider(default, key,) { entryBuilder, value ->
     entryBuilder.startStrList(name, value).apply {
         setDefaultValue(default)
         if (hasTooltip) setTooltip(tooltip)
         setSaveConsumer(save)
     }.build()
-}.apply { entryViews.add(this) }
+}

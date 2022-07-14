@@ -1,12 +1,22 @@
 package me.lunaluna.clothaddons.views.field
 
 import me.lunaluna.clothaddons.LunaConfig
-import me.lunaluna.clothaddons.views.BasicField
+import me.lunaluna.clothaddons.views.provider
 
-fun LunaConfig.alphaColorField(key: String, default: Int = 0, hasTooltip: Boolean = false) = BasicField(Int::class, prefix, default, key) { entryBuilder, value ->
-    entryBuilder.startAlphaColorField(name, value).apply {
+fun LunaConfig.colorField(
+    default: Int = 0,
+    key: String? = null,
+    hasTooltip: Boolean = false,
+    hasAlpha: Boolean = false,
+) = provider(default, key) {entryBuilder, value ->
+    if (hasAlpha) entryBuilder.startAlphaColorField(name, value).apply {
         setDefaultValue(default)
         if (hasTooltip) setTooltip(tooltip)
         setSaveConsumer(save)
     }.build()
-}.apply { entryViews.add(this) }
+    else entryBuilder.startColorField(name, value).apply {
+        setDefaultValue(default)
+        if (hasTooltip) setTooltip(tooltip)
+        setSaveConsumer(save)
+    }.build()
+}
